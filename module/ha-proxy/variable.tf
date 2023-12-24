@@ -1,0 +1,11 @@
+variable "ami" {}
+variable "haProxy-SG" {}
+variable "instance_type" {}
+variable "keypair" {}
+variable "subnetid-01" {}
+variable "subnetid-02" {}
+variable "master1" {}
+variable "master2" {}
+variable "master3" {}
+variable "tag-ha-proxy1" {}
+variable "tag-ha-proxy2" {}

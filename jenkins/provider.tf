@@ -1,4 +1,4 @@
 provider "aws" {
-  region = "eu-west-3"
-  profile = "lington"
+  profile = var.profile
+  region  = var.region
 }

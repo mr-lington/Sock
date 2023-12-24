@@ -1,0 +1,8 @@
+profile              = "lington"
+region               = "eu-west-3"
+ami                  = "ami-0d767e966f3458eb5"
+instance_type        = "t2.medium"
+domain-name          = "greatestshalomventures.com"
+email                = "imade@gmail.com"
+newrelic-license-key = "NRAK-N34BPC1L9265ID0OCRDO25EFQZF"
+newrelic-id          = "3946372"

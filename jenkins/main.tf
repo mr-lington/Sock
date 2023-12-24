@@ -139,29 +139,6 @@ resource "aws_route_table_association" "PRT3-associated" {
   route_table_id = aws_route_table.PRT.id
 }
 
-#Creating Bastion Host and Ansible security group
-resource "aws_security_group" "Bastion-SG" {
-  name        = "${local.name}-Bastion"
-  description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.vpc.id
-  ingress {
-    description = "Allow proxy access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  tags = {
-    Name = "${local.name}Bastion-Ansible-sg"
-  }
-}
-
 
 #Creating Jenkins security group
 resource "aws_security_group" "Jenkins_SG" {
@@ -209,36 +186,9 @@ resource "aws_security_group" "Jenkins_SG" {
   }
 }
 
-# CREATE SECURITY GROUP FOR MASTER NODES AND WORKER NODES
-#Nodes (Master and Worker) Security Group
-resource "aws_security_group" "Nodes-SG" {
-  name        = "${local.name}-Nodes"
-  description = "Allow Inbound traffic"
-  vpc_id      = aws_vpc.vpc.id
-
-  ingress {
-    description = "Allow ssh access"
-    from_port   = 0
-    to_port     = 65535
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "${local.name}-Nodes-SG"
-  }
-}
-
 resource "aws_instance" "jenkins-server" {
-  ami                    = "ami-05b457b541faec0ca"
-  instance_type          = "t2.medium"
+  ami                    = var.ami
+  instance_type          = var.instance_type
   key_name               = aws_key_pair.Keypair_pub.key_name
   vpc_security_group_ids = [aws_security_group.Jenkins_SG.id]
   subnet_id              = aws_subnet.pubsub1.id
@@ -248,4 +198,19 @@ resource "aws_instance" "jenkins-server" {
   tags = {
     Name = "${local.name}-jenkins-server"
   }
+}
+
+# Import a Route53 Hosted Zone
+data "aws_route53_zone" "zone_jenkins" {
+  name         = var.domain-name
+  private_zone = false
+}
+
+# Create a Route53 record for jenkins
+resource "aws_route53_record" "jenkins_record" {
+  zone_id = data.aws_route53_zone.zone_jenkins.zone_id
+  name    = var.domain-name
+  type    = "A"
+  records = [aws_instance.jenkins-server.public_ip]
+  ttl     = 300
 }

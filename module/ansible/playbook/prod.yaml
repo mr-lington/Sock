@@ -1,0 +1,17 @@
+---
+ - name: Ansible Playbook for Production Environment
+   hosts: haproxy
+   become: true
+
+   tasks:
+
+   - name: Deleting the Previous Deployment in Production  
+     shell: sudo su -c 'kubectl delete -f prod-complete.yaml' ubuntu
+     ignore_errors: yes
+     args:
+       chdir: Sock-Shop-App-Repo/deploy/kubernetes
+
+   - name: Deploying Latest Update to Production  
+     shell: sudo su -c 'kubectl apply -f prod-complete.yaml' ubuntu     
+     args:
+       chdir: Sock-Shop-App-Repo/deploy/kubernetes

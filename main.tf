@@ -48,9 +48,9 @@ module "security-group" {
 
 module "bastion" {
   source = "./module/bastion"
-  ami = var.ami-ubuntu
+  ami = "ami-05b457b541faec0ca"
   bastion-SG = module.security-group.bastion-sg-id
-  instance_type = var.instance_type
+  instance_type = "t2.micro"
   keypair= module.keypair.out-pub-key
   subnetid= data.aws_subnet.pubsub1.id
   prv-keypair= module.keypair.out-priv-key
@@ -59,9 +59,9 @@ module "bastion" {
 
 module "haProxy" {
   source = "./module/ha-proxy"
-  ami = var.ami-ubuntu
+  ami = "ami-05b457b541faec0ca"
   haProxy-SG = module.security-group.master-node-sg
-  instance_type = var.instance_type2
+  instance_type = "t2.medium"
   keypair= module.keypair.out-pub-key
   subnetid-01= data.aws_subnet.prvsub1.id
   subnetid-02= data.aws_subnet.prvsub2.id
@@ -74,9 +74,9 @@ module "haProxy" {
 
 module "ansible" {
   source = "./module/ansible"
-  ami = var.ami-ubuntu
+  ami = "ami-05b457b541faec0ca"
   ansible-SG = module.security-group.ansible-sg-id
-  instance_type = var.instance_type2
+  instance_type = "t2.medium"
   keypair= module.keypair.out-pub-key
   subnetid= data.aws_subnet.pubsub2.id
   tag-ansible = "${local.name}-ansible-server"
@@ -94,23 +94,23 @@ module "ansible" {
 
 module "worker-node" {
   source                 = "./module/worker-node"
-  AMI-ubuntu             = var.ami-ubuntu
-  instanceType-t2-medium = var.instance_type2
+  AMI-ubuntu             = "ami-05b457b541faec0ca"
+  instanceType-t2-medium = "t2.medium"
   pub-key                = module.keypair.out-pub-key
   prvsub-id              = [data.aws_subnet.prvsub1.id, data.aws_subnet.prvsub2.id, data.aws_subnet.prvsub3.id]
   worker-node-sg         = module.security-group.worker-node-sg
-  instance-count         = var.instance-count
+  instance-count         = 3
   worker-node            = "${local.name}-worker-node"
 }
 
 module "master-node" {
   source                 = "./module/master-node"
-  AMI-ubuntu             = var.ami-ubuntu
-  instanceType-t2-medium = var.instance_type2
+  AMI-ubuntu             = "ami-05b457b541faec0ca"
+  instanceType-t2-medium = "t2.medium"
   pub-key                = module.keypair.out-pub-key
   prvsub-id              = [data.aws_subnet.prvsub1.id, data.aws_subnet.prvsub2.id, data.aws_subnet.prvsub3.id]
   master-node-sg         = module.security-group.master-node-sg
-  instance-count         = var.instance-count
+  instance-count         = 3
   tag-master             = "${local.name}-master-node"
 }
 
@@ -146,10 +146,10 @@ module "route53" {
   prometheus_lb_zone_id  = module.monitoring-lb.prometheus_lb_zone_id
   grafana_lb_dns_name    = module.monitoring-lb.grafana_lb_dns_name
   grafana_lb_zone_id     = module.monitoring-lb.grafana_lb_zone_id
-  domain = var.domain
-  stage-domain = var.domain-stage
-  prod-domain = var.domain-prod
-  prometheus-domain = var.domain-prometheus
-  grafana-domain = var.domain-grafana
-  domain2 = var.domain2
+  domain = "greatestshalomventures.com"
+  stage-domain = "stage.greatestshalomventures.com"
+  prod-domain = "prod.greatestshalomventures.com"
+  prometheus-domain = "prometheus.greatestshalomventures.com"
+  grafana-domain = "grafana.greatestshalomventures.com"
+  domain2 = "*.greatestshalomventures.com"
 }

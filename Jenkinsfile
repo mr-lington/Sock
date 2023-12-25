@@ -35,10 +35,10 @@ pipeline {
             }
         }
     }
-    
+
     stage('terrafrom action'){
         steps{
-            sh 'terraform ${action} -var-file resource.tfvars -auto-approve'
+            sh 'terraform ${action}  -auto-approve'
         }
     }
   }

@@ -5,22 +5,32 @@
 
    tasks:
 
-   - name: Removing the Previous Application Repo for Update  
-     shell: rm -rf Sock-Shop-App-Repo
-     ignore_errors: yes
-     args:
-       chdir: /home/ubuntu
+   - name: Check if Application Repo exists in the file path using the stat command
+     stat: 
+       path: /home/ubuntu/Sock-Shop
+     register: git_repo_exists  
 
-   - name: Cloning Application Repo to get the Latest Update
-     shell: git clone https://github.com/mr-lington/Sock-Shop.git 
+   - name: Clone Application Repo if it does not exist in the path
+     git:
+       repo: https://github.com/mr-lington/Sock-Shop.git
+       dest: /home/ubuntu/Sock-Shop
+       clone: yes
+     when: not git_repo_exists.stat.exists
+
+   - name: updating the repo with the latest code if the repo already existed
+     shell:
+       cmd: git pull
+       chdir: /home/ubuntu/Sock-Shop
+     when: git_repo_exists.stat.exists
+ 
 
    - name: Deleting Previous Deployment to Stage  
      shell: sudo su -c 'kubectl delete -f staging-complete.yaml' ubuntu
      ignore_errors: yes     
      args:
-       chdir: Sock-Shop-App-Repo/deploy/kubernetes
+       chdir: Sock-Shop/deploy/kubernetes
 
    - name: Deploying Latest Update to Stage  
      shell: sudo su -c 'kubectl apply -f staging-complete.yaml' ubuntu     
      args:
-       chdir: Sock-Shop-App-Repo/deploy/kubernetes
+       chdir: Sock-Shop/deploy/kubernetes

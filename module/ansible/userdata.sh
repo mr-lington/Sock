@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Update instance and install tools (wget, unzip, aws cli)
-sudo apt-get update -y
-sudo apt-get install wget -y
-sudo apt-get install unzip -y
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-sudo ln -svf /usr/local/bin/aws  /usr/bin/aws  # creating a soft link between /usr/local/bin/aws && /usr/bin/aws
-
 # Update instance and install ansible
 sudo apt-get update -y
 sudo apt-get install software-properties-common -y
@@ -58,9 +49,6 @@ sudo su -c "ansible-playbook /home/ubuntu/playbooks/stage.yml" ubuntu
 sudo su -c "ansible-playbook /home/ubuntu/playbooks/prod.yml" ubuntu
 sudo su -c "ansible-playbook /home/ubuntu/playbooks/monitoring.yml" ubuntu
 
-# set up crontab
-sudo chmod 777 /etc/crontab
-sudo chown -R ubuntu:ubuntu /etc/crontab
-sudo echo "*/2 * * * * ubuntu sh /home/ubuntu/playbooks/newIP.sh /etc/ansible" > /etc/crontab
+sudo hostnamectl set-hostname ansible
 
 

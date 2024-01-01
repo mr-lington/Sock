@@ -1,5 +1,5 @@
 locals {
-name = "sock"
+name = "sock-shop"
 prvsub1 = "subnet-0b7e4a6062c8ee2ed"
 prvsub2 = "subnet-07a5ede64dc6da897"
 prvsub3 = "subnet-07c601a84cc3fe532"

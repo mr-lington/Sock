@@ -1,12 +1,12 @@
 locals {
-name = "sock"
-prvsub1 = "subnet-0e28d5e9403c6d4d1"
-prvsub2 = "subnet-0d6fb12cafd6c754c"
-prvsub3 = "subnet-0d2c5d4ddb511dd02"
-pubsub1 = "subnet-0875d72a53a2dd818"
-pubsub2 = "subnet-023897b4077dc95d8"
-pubsub3 = "subnet-0b40fafd682a57058"
-vpc = "vpc-03440b3eb68398597"
+name = "sock-shop"
+prvsub1 = "subnet-0b7e4a6062c8ee2ed"
+prvsub2 = "subnet-07a5ede64dc6da897"
+prvsub3 = "subnet-07c601a84cc3fe532"
+pubsub1 = "subnet-07aa2ea899784bb46"
+pubsub2 = "subnet-0d199fe623de43af1"
+pubsub3 = "subnet-033a494f23afadd74"
+vpc = "vpc-0d458a872d0a4ee8a"
 }
 
 data "aws_vpc" "vpc" {

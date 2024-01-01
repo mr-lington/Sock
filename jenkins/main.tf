@@ -187,13 +187,13 @@ resource "aws_security_group" "Jenkins_SG" {
 }
 
 resource "aws_instance" "jenkins-server" {
-  ami                    = var.ami
-  instance_type          = var.instance_type
-  key_name               = aws_key_pair.Keypair_pub.key_name
-  vpc_security_group_ids = [aws_security_group.Jenkins_SG.id]
-  subnet_id              = aws_subnet.pubsub1.id
-  user_data              = local.jenkins_user_data
-  iam_instance_profile = aws_iam_instance_profile.ec2_profile.id
+  ami                         = var.ami
+  instance_type               = var.instance_type
+  key_name                    = aws_key_pair.Keypair_pub.key_name
+  vpc_security_group_ids      = [aws_security_group.Jenkins_SG.id]
+  subnet_id                   = aws_subnet.pubsub1.id
+  user_data                   = local.jenkins_user_data
+  iam_instance_profile        = aws_iam_instance_profile.ec2_profile.id
   associate_public_ip_address = true
   tags = {
     Name = "${local.name}-jenkins-server"

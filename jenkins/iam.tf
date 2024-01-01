@@ -1,7 +1,7 @@
 #  create iam role and attach the policy document
 resource "aws_iam_role" "ec2_role" {
   name               = "ec2_role"
-  assume_role_policy = "${file("${path.root}/ec2-assume.json")}"
+  assume_role_policy = file("${path.root}/ec2-assume.json")
 }
 
 #  create iam role policy and attach the policy document

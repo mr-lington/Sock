@@ -39,15 +39,15 @@ sudo echo "${worker-node2} ansible_user=ubuntu ansible_ssh_private_key_file=/hom
 sudo echo "${worker-node3} ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/Key.Pem" >> /etc/ansible/hosts
 
 #commands to trigger playbook
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/installation.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/MastKeepalived.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/main-master.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/member-master.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/worker-node.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/haproxy.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/stage.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/prod.yml" ubuntu
-sudo su -c "ansible-playbook /home/ubuntu/playbooks/monitoring.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/installation.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/keepalived.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/main-master.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/member-master.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/worker-node.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/haproxy.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/stage.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/prod.yml" ubuntu
+sudo su -c "ansible-playbook /home/ubuntu/playbook/monitoring.yml" ubuntu
 
 sudo hostnamectl set-hostname ansible
 

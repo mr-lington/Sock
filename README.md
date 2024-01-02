@@ -41,3 +41,14 @@ Install the plugin needed for the project<br>
 <img width="1195" alt="Screenshot 2024-01-01 at 22 32 45" src="https://github.com/mr-lington/Sock/assets/99319094/ca267df3-37e7-432e-812f-0d4311103e99"><br>
 
 <img width="864" alt="Screenshot 2024-01-01 at 22 43 08" src="https://github.com/mr-lington/Sock/assets/99319094/5638cb92-1d08-437c-be3e-077a8039d22b"><br>
+
+## Accessing other infrastructure
+1. you have to enter the commmand sudo su in the jenkins to switch to root user then<br>
+<img width="848" alt="Screenshot 2024-01-01 at 23 23 29" src="https://github.com/mr-lington/Sock/assets/99319094/8f00059b-3dae-4f63-94da-25827be646ce"><br>
+
+2. ssh into ansible
+<img width="838" alt="Screenshot 2024-01-01 at 23 26 08" src="https://github.com/mr-lington/Sock/assets/99319094/1273676d-c8b7-4761-bc22-61f6d5754d7d"><br>
+<img width="831" alt="Screenshot 2024-01-01 at 23 27 04" src="https://github.com/mr-lington/Sock/assets/99319094/fa95be06-c1cb-4031-a81a-6532815f0b3a"><br>
+3. check for ansible host inventory file
+
+<img width="1008" alt="Screenshot 2024-01-01 at 23 38 27" src="https://github.com/mr-lington/Sock/assets/99319094/c1892492-118b-4189-8c44-eecce99eff45">

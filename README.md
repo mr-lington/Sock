@@ -103,3 +103,8 @@ copy token generated and used it to create a credential for slack<br>
 
 configure system for slack<br>
 <img width="927" alt="Screenshot 2024-01-06 at 18 04 25" src="https://github.com/mr-lington/Sock/assets/99319094/94beda6b-c5f7-4ef0-85e1-d63f5f973d59"><br>
+
+update the front-end of stage and production<br>
+
+<img width="1047" alt="Screenshot 2024-01-06 at 18 25 27" src="https://github.com/mr-lington/Sock/assets/99319094/44baf492-92a1-4610-bbce-1d4ead8b6934"><br>
+

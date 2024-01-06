@@ -69,4 +69,4 @@ import dashboard for name spaces<br>
 
 <img width="1728" alt="Screenshot 2024-01-06 at 15 38 30" src="https://github.com/mr-lington/Sock/assets/99319094/bfd5474b-a154-46a4-bf83-b5759f47d581"><br>
 
-<img width="1728" alt="Screenshot 2024-01-06 at 15 38 57" src="https://github.com/mr-lington/Sock/assets/99319<img 094/63a69288-e480-427a-8cfa-e8a43a13cbf2"><br>
+

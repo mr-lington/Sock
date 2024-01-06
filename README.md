@@ -79,3 +79,11 @@ import dashboard for name spaces<br>
 1. Configure credential for ansible<br>
 <img width="1055" alt="Screenshot 2024-01-06 at 17 05 34" src="https://github.com/mr-lington/Sock/assets/99319094/c40afd00-a815-4518-b51b-f9b48f0a66cc"><br>
 
+2. Configure GitHub hook trigger for gitScm polling<br>
+<img width="1050" alt="Screenshot 2024-01-06 at 17 10 17" src="https://github.com/mr-lington/Sock/assets/99319094/25a35c38-ae90-4a15-9876-6195851bd991"><br>
+<img width="1045" alt="Screenshot 2024-01-06 at 17 11 10" src="https://github.com/mr-lington/Sock/assets/99319094/46b41e3e-3e45-4a21-a274-f455130c008f"><br>
+
+3. Configure the webhook in github<br>
+
+<img width="1085" alt="Screenshot 2024-01-06 at 17 22 05" src="https://github.com/mr-lington/Sock/assets/99319094/534332b5-8a8f-44c4-8025-465f8d7d7686"><br>
+

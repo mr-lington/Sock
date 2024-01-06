@@ -1,12 +1,12 @@
 locals {
-name = "sock-shop"
-prvsub1 = "subnet-0b7e4a6062c8ee2ed"
-prvsub2 = "subnet-07a5ede64dc6da897"
-prvsub3 = "subnet-07c601a84cc3fe532"
-pubsub1 = "subnet-07aa2ea899784bb46"
-pubsub2 = "subnet-0d199fe623de43af1"
-pubsub3 = "subnet-033a494f23afadd74"
-vpc = "vpc-0d458a872d0a4ee8a"
+name    = "sock-shop"
+prvsub1 = "subnet-063c7b0600f54029d"
+prvsub2 = "subnet-0a506bdaeaf18a7eb"
+prvsub3 = "subnet-0cb94727316d4e131"
+pubsub1 = "subnet-0fbd683b857df502f"
+pubsub2 = "subnet-09e8cbc15837842f5"
+pubsub3 = "subnet-0af3681d9db9df5d7"
+vpc = "vpc-02fe4ffa0a53867c5"
 }
 
 data "aws_vpc" "vpc" {
@@ -47,49 +47,49 @@ module "security-group" {
 }
 
 module "bastion" {
-  source = "./module/bastion"
-  ami = "ami-05b457b541faec0ca"
-  bastion-SG = module.security-group.bastion-sg-id
+  source        = "./module/bastion"
+  ami           = "ami-05b457b541faec0ca"
+  bastion-SG    = module.security-group.bastion-sg-id
   instance_type = "t2.micro"
-  keypair= module.keypair.out-pub-key
-  subnetid= data.aws_subnet.pubsub1.id
-  prv-keypair= module.keypair.out-priv-key
-  tag-bastion= "${local.name}-bastion-server"
+  keypair       = module.keypair.out-pub-key
+  subnetid      = data.aws_subnet.pubsub1.id
+  prv-keypair   = module.keypair.out-priv-key
+  tag-bastion   = "${local.name}-bastion-server"
 }
 
 module "haProxy" {
-  source = "./module/ha-proxy"
-  ami = "ami-05b457b541faec0ca"
-  haProxy-SG = module.security-group.master-node-sg
+  source        = "./module/ha-proxy"
+  ami           = "ami-05b457b541faec0ca"
+  haProxy-SG    = module.security-group.master-node-sg
   instance_type = "t2.medium"
-  keypair= module.keypair.out-pub-key
-  subnetid-01= data.aws_subnet.prvsub1.id
-  subnetid-02= data.aws_subnet.prvsub2.id
-  master1= module.master-node.master-node-ip[0]
-  master2= module.master-node.master-node-ip[1]
-  master3= module.master-node.master-node-ip[2]
-  tag-ha-proxy1= "${local.name}-ha-proxy1-server"
-  tag-ha-proxy2= "${local.name}-ha-proxy2-server"
+  keypair       = module.keypair.out-pub-key
+  subnetid-01   = data.aws_subnet.prvsub1.id
+  subnetid-02   = data.aws_subnet.prvsub2.id
+  master1       = module.master-node.master-node-ip[0]
+  master2       = module.master-node.master-node-ip[1]
+  master3       = module.master-node.master-node-ip[2]
+  tag-ha-proxy1 = "${local.name}-ha-proxy1-server"
+  tag-ha-proxy2 = "${local.name}-ha-proxy2-server"
 }
 
 module "ansible" {
-  source = "./module/ansible"
-  ami = "ami-05b457b541faec0ca"
-  ansible-SG = module.security-group.ansible-sg-id
-  instance_type = "t2.medium"
-  keypair= module.keypair.out-pub-key
-  subnetid= data.aws_subnet.pubsub2.id
-  tag-ansible = "${local.name}-ansible-server"
-  prv-keypair = module.keypair.out-priv-key
-  haproxy1-Ip= module.haProxy.ha-proxy1-ip
-  haproxy2-Ip= module.haProxy.ha-proxy2-ip
-  main-masterIP = module.master-node.master-node-ip[0]
-  member-masterIP1= module.master-node.master-node-ip[1]
-  member-masterIP2= module.master-node.master-node-ip[2]
-  worker-node1= module.worker-node.Worker-node-ip[0]
-  worker-node2= module.worker-node.Worker-node-ip[1]
-  worker-node3= module.worker-node.Worker-node-ip[2]
-  bastion-host= module.bastion.bastion-ip
+  source           = "./module/ansible"
+  ami              = "ami-05b457b541faec0ca"
+  ansible-SG       = module.security-group.ansible-sg-id
+  instance_type    = "t2.medium"
+  keypair          = module.keypair.out-pub-key
+  subnetid         = data.aws_subnet.pubsub2.id
+  tag-ansible      = "${local.name}-ansible-server"
+  prv-keypair      = module.keypair.out-priv-key
+  haproxy1-Ip      = module.haProxy.ha-proxy1-ip
+  haproxy2-Ip      = module.haProxy.ha-proxy2-ip
+  main-masterIP    = module.master-node.master-node-ip[0]
+  member-masterIP1 = module.master-node.master-node-ip[1]
+  member-masterIP2 = module.master-node.master-node-ip[2]
+  worker-node1     = module.worker-node.Worker-node-ip[0]
+  worker-node2     = module.worker-node.Worker-node-ip[1]
+  worker-node3     = module.worker-node.Worker-node-ip[2]
+  bastion-host     = module.bastion.bastion-ip
 }
 
 module "worker-node" {
@@ -116,24 +116,24 @@ module "master-node" {
 
 module "monitoring-lb" {
   source          = "./module/monitoring-lb"
-  prometheus-SG = module.security-group.worker-node-sg
-  subnets         = [data.aws_subnet.pubsub1.id, data.aws_subnet.pubsub2.id, data.aws_subnet.pubsub3.id,]
+  prometheus-SG   = module.security-group.worker-node-sg
+  subnets         = [data.aws_subnet.pubsub1.id, data.aws_subnet.pubsub2.id, data.aws_subnet.pubsub3.id, ]
   certificate-arn = module.route53.sock-cert
   vpc_id          = data.aws_vpc.vpc.id
   instance        = module.worker-node.worker-node-id
-  tag-prometheus = "${local.name}-prometheus-alb"
-  tag-grafana = "${local.name}-prometheus-alb"
-  grafana-SG = module.security-group.worker-node-sg
+  tag-prometheus  = "${local.name}-prometheus-alb"
+  tag-grafana     = "${local.name}-prometheus-alb"
+  grafana-SG      = module.security-group.worker-node-sg
 }
 
 module "environment-lb" {
   source          = "./module/environment-lb"
-  stage-SG = module.security-group.worker-node-sg
-  subnets         = [data.aws_subnet.pubsub1.id, data.aws_subnet.pubsub2.id, data.aws_subnet.pubsub3.id,]
+  stage-SG        = module.security-group.worker-node-sg
+  subnets         = [data.aws_subnet.pubsub1.id, data.aws_subnet.pubsub2.id, data.aws_subnet.pubsub3.id, ]
   vpc_id          = data.aws_vpc.vpc.id
   instance        = module.worker-node.worker-node-id
   certificate-arn = module.route53.sock-cert
-  prod-SG = module.security-group.master-node-sg
+  prod-SG         = module.security-group.master-node-sg
 }
 
 module "route53" {
@@ -146,10 +146,10 @@ module "route53" {
   prometheus_lb_zone_id  = module.monitoring-lb.prometheus_lb_zone_id
   grafana_lb_dns_name    = module.monitoring-lb.grafana_lb_dns_name
   grafana_lb_zone_id     = module.monitoring-lb.grafana_lb_zone_id
-  domain = "greatestshalomventures.com"
-  stage-domain = "stage.greatestshalomventures.com"
-  prod-domain = "prod.greatestshalomventures.com"
-  prometheus-domain = "prometheus.greatestshalomventures.com"
-  grafana-domain = "grafana.greatestshalomventures.com"
-  domain2 = "*.greatestshalomventures.com"
+  domain                 = "greatestshalomventures.com"
+  stage-domain           = "stage.greatestshalomventures.com"
+  prod-domain            = "prod.greatestshalomventures.com"
+  prometheus-domain      = "prometheus.greatestshalomventures.com"
+  grafana-domain         = "grafana.greatestshalomventures.com"
+  domain2                = "*.greatestshalomventures.com"
 }

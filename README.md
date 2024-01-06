@@ -51,6 +51,21 @@ Install the plugin needed for the project<br>
 <img width="831" alt="Screenshot 2024-01-01 at 23 27 04" src="https://github.com/mr-lington/Sock/assets/99319094/fa95be06-c1cb-4031-a81a-6532815f0b3a"><br>
 
 3. check for ansible host inventory file<br>
-<img width="1008" alt="Screenshot 2024-01-01 at 23 38 27" src="https://github.com/mr-lington/Sock/assets/99319094/c1892492-118b-4189-8c44-eecce99eff45">
+<img width="1008" alt="Screenshot 2024-01-01 at 23 38 27" src="https://github.com/mr-lington/Sock/assets/99319094/c1892492-118b-4189-8c44-eecce99eff45"><br>
 
+## Accessing application with domains<br>
+You can now access the stage and production with the domain names<br>
+stage.example.com<br>
+prod.example.com<br>
+<img width="1045" alt="Screenshot 2024-01-06 at 15 04 53" src="https://github.com/mr-lington/Sock/assets/99319094/fe525236-0d80-4596-9d14-7650ca315808"><br>
 
+## Accessing monitoring application with domains<br>
+enter usename: admin<br>
+enter password: prom-operator<br>
+
+import dashboard for name spaces<br>
+
+<img width="1725" alt="Screenshot 2024-01-06 at 15 37 40" src="https://github.com/mr-lington/Sock/assets/99319094/edc0471a-8551-4185-adf6-d76de140c112"><br>
+<img width="1728" alt="Screenshot 2024-01-06 at 15 38 30" src="https://github.com/mr-lington/Sock/assets/99319094/bfd5474b-a154-46a4-bf83-b5759f47d581"><br>
+<img width="1728" alt="Screenshot 2024-01-06 at 15 38 57" src="https://github.com/mr-lington/Sock/assets/99319<img width="1728" alt="Screenshot 2024-01-06 at 15 39 29" src="https://github.com/mr-lington/Sock/assets/99319094/a8b5cb15-41be-4d5d-9c1f-88b76057234a">
+094/63a69288-e480-427a-8cfa-e8a43a13cbf2"><br>

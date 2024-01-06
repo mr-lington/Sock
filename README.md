@@ -70,3 +70,8 @@ import dashboard for name spaces<br>
 <img width="1728" alt="Screenshot 2024-01-06 at 15 38 30" src="https://github.com/mr-lington/Sock/assets/99319094/bfd5474b-a154-46a4-bf83-b5759f47d581"><br>
 
 
+<img width="1728" alt="Screenshot 2024-01-06 at 15 44 55" src="https://github.com/mr-lington/Sock/assets/99319094/5f5f1d13-0c1d-4384-aaea-4a8395894db1"><br>
+
+
+<img width="1724" alt="Screenshot 2024-01-06 at 15 46 08" src="https://github.com/mr-lington/Sock/assets/99319094/155af463-efef-4a8f-95db-2bd827d24963"><br>
+

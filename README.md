@@ -75,3 +75,7 @@ import dashboard for name spaces<br>
 
 <img width="1724" alt="Screenshot 2024-01-06 at 15 46 08" src="https://github.com/mr-lington/Sock/assets/99319094/155af463-efef-4a8f-95db-2bd827d24963"><br>
 
+## Now we will set up the Second pipeline for continous integration<br>
+1. Configure credential for ansible<br>
+<img width="1055" alt="Screenshot 2024-01-06 at 17 05 34" src="https://github.com/mr-lington/Sock/assets/99319094/c40afd00-a815-4518-b51b-f9b48f0a66cc"><br>
+

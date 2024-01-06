@@ -107,4 +107,10 @@ configure system for slack<br>
 update the front-end of stage and production<br>
 
 <img width="1047" alt="Screenshot 2024-01-06 at 18 25 27" src="https://github.com/mr-lington/Sock/assets/99319094/44baf492-92a1-4610-bbce-1d4ead8b6934"><br>
+<img width="1418" alt="Screenshot 2024-01-06 at 18 39 38" src="https://github.com/mr-lington/Sock/assets/99319094/a8206d15-340f-4faf-9b2e-ed06fbcc7c86"><br>
 
+you can now access the prod and stage again useing the domain names<br>
+
+<img width="928" alt="Screenshot 2024-01-06 at 18 40 37" src="https://github.com/mr-lington/Sock/assets/99319094/c4957cf5-824c-4795-aa95-09f0dba18e88"><br>
+
+<img width="1418" alt="Screenshot 2024-01-06 at 18 39 38" src="https://github.com/mr-lington/Sock/assets/99319094/a8206d15-340f-4faf-9b2e-ed06fbcc7c86"><br>

@@ -133,7 +133,7 @@ module "environment-lb" {
   vpc_id          = data.aws_vpc.vpc.id
   instance        = module.worker-node.worker-node-id
   certificate-arn = module.route53.sock-cert
-  prod-SG         = module.security-group.master-node-sg
+  prod-SG         = module.security-group.worker-node-sg
 }
 
 module "route53" {

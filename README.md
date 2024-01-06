@@ -86,4 +86,20 @@ import dashboard for name spaces<br>
 3. Configure the webhook in github<br>
 
 <img width="1085" alt="Screenshot 2024-01-06 at 17 22 05" src="https://github.com/mr-lington/Sock/assets/99319094/534332b5-8a8f-44c4-8025-465f8d7d7686"><br>
+<img width="1087" alt="Screenshot 2024-01-06 at 17 31 23" src="https://github.com/mr-lington/Sock/assets/99319094/5935fd7f-3100-4463-a78b-f1172d519488"><br>
 
+4. Configure Slack Notification<br>
+click add app && click on configure<br>
+<img width="790" alt="Screenshot 2024-01-06 at 17 43 48" src="https://github.com/mr-lington/Sock/assets/99319094/c3d81942-d669-4902-92a9-e2a095f921ad"><br>
+
+click on Add Slack<br>
+<img width="1046" alt="Screenshot 2024-01-06 at 17 44 58" src="https://github.com/mr-lington/Sock/assets/99319094/d08923c5-972f-46e2-b808-690d8cfd6a3a"><br>
+
+choose a channel && Add Jenkins Cl integration<br>
+<img width="1049" alt="Screenshot 2024-01-06 at 17 47 36" src="https://github.com/mr-lington/Sock/assets/99319094/18198a3a-213f-4495-b339-148be382f494"><br>
+
+copy token generated and used it to create a credential for slack<br>
+<img width="998" alt="Screenshot 2024-01-06 at 17 49 42" src="https://github.com/mr-lington/Sock/assets/99319094/e15f3bd7-7290-457b-9b5d-3f93add0ac67"><br>
+
+configure system for slack<br>
+<img width="927" alt="Screenshot 2024-01-06 at 18 04 25" src="https://github.com/mr-lington/Sock/assets/99319094/94beda6b-c5f7-4ef0-85e1-d63f5f973d59"><br>

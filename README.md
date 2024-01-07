@@ -110,9 +110,7 @@ update the front-end of stage and production<br>
 <img width="1418" alt="Screenshot 2024-01-06 at 18 39 38" src="https://github.com/mr-lington/Sock/assets/99319094/a8206d15-340f-4faf-9b2e-ed06fbcc7c86"><br>
 
 you can now access the prod and stage again useing the domain names<br>
-
-<img width="928" alt="Screenshot 2024-01-06 at 18 40 37" src="https://github.com/mr-lington/Sock/assets/99319094/c4957cf5-824c-4795-aa95-09f0dba18e88"><br>
 <img width="1044" alt="Screenshot 2024-01-07 at 21 02 03" src="https://github.com/mr-lington/Sock/assets/99319094/66fbc791-c287-4ec0-9335-b7f8d6843f76"><br>
 
 <img width="1418" alt="Screenshot 2024-01-06 at 18 39 38" src="https://github.com/mr-lington/Sock/assets/99319094/a8206d15-340f-4faf-9b2e-ed06fbcc7c86"><br>
-<img width="1044" alt="Screenshot 2024-01-07 at 21 02 03" src="https://github.com/mr-lington/Sock/assets/99319094/66fbc791-c287-4ec0-9335-b7f8d6843f76">
+
